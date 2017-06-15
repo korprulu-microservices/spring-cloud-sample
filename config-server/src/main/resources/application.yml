@@ -1,0 +1,11 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: infra-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://${user.home}/works/korprulu/sample-config
