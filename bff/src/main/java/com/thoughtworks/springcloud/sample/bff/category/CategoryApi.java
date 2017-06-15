@@ -1,5 +1,6 @@
 package com.thoughtworks.springcloud.sample.bff.category;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,9 +16,14 @@ public class CategoryApi {
     private RestTemplate restTemplate;
 
     @GetMapping(path="categories")
+    @HystrixCommand(fallbackMethod = "getCategoriesFallback")
     public List<String> getCategories() {
         return Arrays.stream(restTemplate.getForObject("http://service-product/categories", CategoryDto[].class))
             .map(CategoryDto::getName)
             .collect(Collectors.toList());
+    }
+
+    public List<String> getCategoriesFallback() {
+        return Arrays.asList("fallback");
     }
 }
