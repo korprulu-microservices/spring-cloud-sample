@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: infra-api-gateway
+
+zuul:
+  ignoredService: "*"
+  routes:
+    bff:
+      path: /bff/**
+      stripPrefix: true
+      serviceId: service-bff
