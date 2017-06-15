@@ -3,4 +3,5 @@ include 'config-server'
 include 'product'
 include 'bff'
 include 'api-gateway'
+include 'zipkin'
 

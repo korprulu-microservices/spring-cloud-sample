@@ -4,6 +4,10 @@ spring:
       discovery:
         enabled: true
         serviceId: infra-config-server
+  zipkin:
+    discovery:
+      enabled: true
+      serviceId: infra-zipkin
 
 feign:
   hystrix:
