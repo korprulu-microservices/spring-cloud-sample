@@ -1,3 +1,5 @@
 spring:
   application:
     name: service-bff
+  log:
+    level: debug

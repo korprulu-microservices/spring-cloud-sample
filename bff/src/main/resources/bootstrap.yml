@@ -5,6 +5,10 @@ spring:
         enabled: true
         serviceId: infra-config-server
 
+feign:
+  hystrix:
+    enabled: true
+
 eureka:
   client:
     serviceUrl:
